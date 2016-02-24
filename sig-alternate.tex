@@ -8,7 +8,6 @@
 \usepackage{url}
 \usepackage{dsfont}
 \usepackage{subfigure}
-\usepackage[colorlinks=false]{hyperref}
 \usepackage{graphicx}
 \usepackage{xspace}
 \usepackage{multirow}
@@ -24,6 +23,9 @@
 \usepackage{appendix}
 \usepackage{lipsum}
 \usepackage{sidecap}
+\usepackage{sparklines}
+\usepackage{pgfplots}
+\usepackage{tikz}
 \usepackage[font=small,labelfont=bf]{caption}
 \newcommand{\rs}[1]{\textcolor{ForestGreen}{RM: #1}}
 \newcommand{\rp}[1]{\textcolor{Magenta}{RP: #1}}
@@ -33,6 +35,136 @@
 \setlength{\emergencystretch}{50pt}
 \setcounter{secnumdepth}{2}
 
+
+
+% BEGIN OF STYLE DEFINITION FOR sparkline:
+\makeatletter
+\usetikzlibrary{positioning}
+\colorlet{sparkcolor}{red!80!black}
+\colorlet{minmaxcolor}{blue!80!black}
+\pgfplotsset{
+    every spark line/.style={
+        hide axis,
+        clip=false,
+        bar width=2pt,
+        cycle list={blue,mark=none\\},
+        height=0.8\baselineskip,
+        anchor=south west,
+        width=5\baselineskip,
+        scale only axis,
+        filter point/.code={%
+            \xdef\sparklinex{\pgfkeysvalueof{/data point/x}}%
+            \xdef\sparkliney{\pgfkeysvalueof{/data point/y}}%
+            \pgfplotscoordmath{default}{parsenumber}{\sparklinex}%
+            \let\sparklinex@=\pgfmathresult
+            \pgfplotscoordmath{default}{parsenumber}{\sparkliney}%
+            \let\sparkliney@=\pgfmathresult
+            \ifnum\coordindex=0
+                \global\let\sparklineSTARTx\sparklinex
+                \global\let\sparklineSTARTy\sparkliney
+                \global\let\sparklineMINx\sparklinex
+                \global\let\sparklineMINy\sparkliney
+                \global\let\sparklineMINy@\sparkliney@
+                %
+                \global\let\sparklineMAXx\sparklinex
+                \global\let\sparklineMAXy\sparkliney
+                \global\let\sparklineMAXy@\sparkliney@
+            \else
+                \pgfplotscoordmath{default}{if less than}{\sparkliney@}{\sparklineMINy@}{%
+                    \global\let\sparklineMINx\sparklinex
+                    \global\let\sparklineMINy\sparkliney
+                    \global\let\sparklineMINy@\sparkliney@
+                }{}%
+                \pgfplotscoordmath{default}{if less than}{\sparklineMAXy@}{\sparkliney@}{%
+                    \global\let\sparklineMAXx\sparklinex
+                    \global\let\sparklineMAXy\sparkliney
+                    \global\let\sparklineMAXy@\sparkliney@
+                }{}%
+            \fi
+            \global\let\sparklineENDx\sparklinex
+            \global\let\sparklineENDy\sparkliney
+        },
+        extra description/.code={%
+            \node[begin node description]  {\pgfkeysvalueof{/pgfplots/begin node text}};
+            \node[end node description]    {\pgfkeysvalueof{/pgfplots/end node text}};
+        },
+    },
+    spark std max/.initial=,
+    spark std min/.initial=,
+    /tikz/spark std region/.style={fill=gray!10},
+    begin node text/.initial=\pgfmathprintnumber{\sparklineSTARTy},
+    end node text/.initial=  \pgfmathprintnumber{\sparklineENDy},
+    /tikz/begin node description/.style={
+        text width=3em,align=right,
+        base left,sparkcolor,
+        /pgf/number format/fixed,
+        /pgf/number format/fixed zerofill,
+        /pgf/number format/showpos,
+        at={(current axis.south west)},
+    },
+    /tikz/end node description/.style={
+        base right,sparkcolor,
+        /pgf/number format/fixed,
+        /pgf/number format/fixed zerofill,
+        /pgf/number format/showpos,
+        at={(current axis.south east)},
+    },
+    sparkline nodes/.initial={%
+        node[begin node] at (axis cs:\sparklineSTARTx,\sparklineSTARTy) {}
+        node[end node]   at (axis cs:\sparklineENDx,\sparklineENDy) {}
+        node[min node]   at (axis cs:\sparklineMINx,\sparklineMINy) {}
+        node[max node]   at (axis cs:\sparklineMAXx,\sparklineMAXy) {}
+    },
+    /tikz/spark marker/.style={
+        circle,
+        inner sep=1pt,
+    },
+    /tikz/begin node/.style={
+        spark marker,
+        fill=sparkcolor,
+    },
+    /tikz/end node/.style={
+        spark marker,
+        fill=sparkcolor,
+    },
+    /tikz/min node/.style={
+        spark marker,
+        fill=minmaxcolor,
+    },
+    /tikz/max node/.style={
+        spark marker,
+        fill=minmaxcolor,
+    },
+}
+
+\def\sparkline{\pgfutil@ifnextchar[{\sparkline@opt}{\sparkline@opt[]}}%
+\long\def\sparkline@opt[#1]#2;{%
+    \begin{tikzpicture}[baseline]
+    \begin{axis}[every spark line,#1]
+        \begin{scope}[yshift=-0.2\baselineskip]
+        \pgfplotsextra{
+            % \pgfkeysgetvalue{/pgfplots/spark std min}\sparkstdmin
+            % \pgfkeysgetvalue{/pgfplots/spark std max}\sparkstdmax
+            \ifx\sparkstdmin\empty
+            \else
+                \ifx\sparkstdmax\empty
+                \else
+                    \fill[spark std region]
+                         (axis cs:\sparklineSTARTx,\sparkstdmax) rectangle (axis cs:\sparklineENDx,\sparkstdmin);
+                \fi
+            \fi
+        }
+        \addplot #2 \pgfkeysvalueof{/pgfplots/sparkline nodes};
+        \end{scope}
+    \end{axis}
+    \end{tikzpicture}%
+}
+
+\makeatother
+% END OF STYLE DEFINITIONS
+
+
+
 \begin{document}
 
 %\permission{Permission to make digital or hard copies of all or part of this work for personal or classroom use is granted without fee provided that copies are not made or distributed for profit or commercial advantage and that copies bear this notice and the full citation on the first page. To copy otherwise, to republish, to post on servers or to redistribute to lists, requires prior specific permission and/or a fee.}
@@ -40,7 +172,7 @@
 %\copyright{Copyright 2015 ACM X-XXXXX-XX-X/XX/XX ...\$15.00.}
 
 %\title{Large-scale analysis of social media campaigns on climate change}
-\title{On petition analysis in public environmental campaigns}
+\title{Please Sign to Save ... : When Petitions on Environmental Causes Succeed}
 
 
 \newcommand{\etal}[1]{#1~\emph{et al.}}
@@ -65,13 +197,7 @@
 %        \affaddr{\'{E}cole Polytechnique F\'{e}d\'{e}rale de Lausanne}\\
 %        \affaddr{Lausanne---Switzerland}\\
 %        \email{iuliia.proskurnia@epfl.ch}
- % 2nd. author
-% \alignauthor Michele Catasta \\
-%        \affaddr{\'{E}cole Polytechnique F\'{e}d\'{e}rale de Lausanne}\\
-%        \affaddr{Lausanne---Switzerland}\\
-%        \email{michele.catasta@epfl.ch}
-% }
-% 3rd. author
+% 2nd. author
  % I prefer to be last, hope that's ok!
 % \alignauthor Philippe Cudr\'{e}-Mauroux\\
 % 	    \affaddr{University of Fribourg}\\
@@ -84,16 +210,17 @@
 \begin{abstract}
 
 % Climate change
-Social media became an instrument to support a controversial climate change discourse.
+Social media became an instrument to support the climate change discourse.
 % Campaigns and e-petitioning
 In particular, Twitter enhances information dissemination for running various types of public campaigns.
 Yet, e-petition dynamics of public environmental campaigns on social platforms still remain largely unexplored.
 % Role of the petitions in the environmental campaigns
-In this paper, we present an analysis of public environmental campaigns through the prism of created and promoted petitions and their success. 
+In this paper, we present an analysis of e-petitions that are promoted by the environmental campaigns on Twitter.
+We further identify major social and content features of the tweets that correlate with the petition success.
 % Petition success based on the campaign or Twitter activity
-Moreover, we have separated e-petition evidence within campaigns from its overall Twitter presence.
 % Findings...
-We have observed differences in success/failure ratios for general types of petitioning and crowdfunding. Moreover, we propose a generic protocol for petition success prediction based on its Twitter presence which reveals social features to dominate the success.
+We have observed the differences between various petitions in their success/failure rate. We have found that petitions are mainly promoted by the campaigns with a high user engagement on Twitter, however, tweets and users outside of the campaign community correlate with a petition success as well.
+Finally, we highlight general insights that typically lead to a petition success.
 
 \end{abstract}
 
