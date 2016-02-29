@@ -65,14 +65,14 @@ Overall, there is no clear distinction between campaigns in terms of having domi
 \subsection{Campaign petitions on Twitter}
 After meticulous data collection, cleaning and preprocessing, we have extracted a number of basic features from the tweets containing a petition URL.
 This process is explained in Section~\ref{sec:dataset} in details.
-We have build a binary decision tree classifier\footnote{ http://scikit-learn.org } over our petition set using features from the previous section and examined their effect on the overall success of the particular petitions.
+We have build a binary decision tree classifier\footnote{ http://scikit-learn.org } over our petition set using described features and examined their effect on the overall success of the petitions.
 
 On average, the tree has relatively high branching uncertainty, however, a few paths were more determined at predicting the petition success.
 Unexpectedly, we have observed that the higher the signature goal, $S(p)$, of a particular petition, the more likely it is to succeed. In particular, over 92\% of the petitions with $S(p)$ higher 100K obtained the required number of signatures.
 % TODO: Add some motivation, examples etc...
 Moreover, the higher the average number of followers a user posting about a give campaign has, $T_3(p)$, the less likely the petition is to attain the required number of signatures.
 On the contrary, the higher the average number of followers a user posting the petition URL without campaign hashtags has, $T_5(p)$, the more likely the petition is to attain the required number of signatures.
-It should be noted, that the average number of followers is 10x higher for users outside of the campaign compared to the campaign activists.
+It should be noted, that the average number of followers is 10x higher for users outside of the campaign compared to the campaign activists. Other features did not reveal significant correlation.
 
 \subsection{Lessons Learned}
 \label{sec:discussion}
