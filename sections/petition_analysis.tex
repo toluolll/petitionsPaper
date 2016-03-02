@@ -19,18 +19,18 @@ Distribution of the petitions by their collected signatures versus their rank is
 
 \begin{table}[hbt!]
 \centering
-\begin{tabular}{lcccc}
-			& \textit{Successful} & \textit{Failed} &  \textit{Total}	\\ \midrule
-Petitions			& 61		& 179		& 240		\\
-Proportion			& 26\%		& 74\%		& 100\%		\\
-Users 				& 245		& 313		& 558		\\
-Tweets				& 601		& 716		& 1317		\\
-Retweets			& 4828		& 1451		& 6279 		\\
-$S(p)$				& 153093	& 79597		& 116345	\\
-$C(p)$				& 170351	& 43739		& 107045	\\ \midrule
-\multicolumn{4}{c}{\textit{Petition tweets without campaign hashtags}}	\\ \midrule
-Tweets				& 1054		& 707		& 1761		\\
-Users 				& 626		& 472		& 1098		\\
+\begin{tabular}{lccc}
+			& \textit{Successful} & \textit{Failed}	\\ \midrule
+Petitions					& 61		& 179		\\
+Original Tweets				& 601		& 716		\\
+Original tweets users 		& 245		& 313		\\
+Reweets						& 4828		& 1451 		\\
+Retweets users				& 3965		& 1207		\\
+Average $S(p)$				& 153093	& 79597		\\
+Average $C(p)$				& 170351	& 43739		\\
+\multicolumn{3}{l}{\textit{Petition tweets without campaign hashtags}}	\\ \midrule
+Tweets						& 1054		& 707		\\
+Users 						& 626		& 472		\\
 \end{tabular}
 \caption{Global statistics of the petition dataset of environmental campaigns. We show the data for the successful and failed petitions, as well as total numbers. Users are unique people who tweeted the petition URLs at least once. $S(p)$ and $C(p)$ for successful and failed petitions are highlighted in the table. Additionally, we show statistics of the petition tweets that does not have a campaign hashtag.}
 \label{tab:petition_tweets}
@@ -43,7 +43,7 @@ Users 				& 626		& 472		& 1098		\\
 \label{fig:signatures_vs_rank}
 \end{figure}
 
-\subsection{Petition in public campaigns on Twitter}
+\subsection{Petitions in public campaigns on Twitter}
 % Information regarding environmental campaigns, types etc.
 % Our findings:
 % (a) only mobilization and single awareness; annual campaign with big number of msgs and failure rate.
@@ -65,22 +65,22 @@ Overall, there is no clear distinction between campaigns in terms of having domi
 \subsection{Campaign petitions on Twitter}
 After meticulous data collection, cleaning and preprocessing, we have extracted a number of basic features from the tweets containing a petition URL.
 This process is explained in Section~\ref{sec:dataset} in details.
-We have build a binary decision tree classifier\footnote{ http://scikit-learn.org/stable/modules/tree.html } (with depth 4) over our petition set using features from the previous section and examined their effect on the overall success of the particular petitions.
+We have build a binary decision tree classifier\footnote{ http://scikit-learn.org } over our petition set using described features and examined their effect on the overall success of the petitions.
 
 On average, the tree has relatively high branching uncertainty, however, a few paths were more determined at predicting the petition success.
 Unexpectedly, we have observed that the higher the signature goal, $S(p)$, of a particular petition, the more likely it is to succeed. In particular, over 92\% of the petitions with $S(p)$ higher 100K obtained the required number of signatures.
 % TODO: Add some motivation, examples etc...
 Moreover, the higher the average number of followers a user posting about a give campaign has, $T_3(p)$, the less likely the petition is to attain the required number of signatures.
 On the contrary, the higher the average number of followers a user posting the petition URL without campaign hashtags has, $T_5(p)$, the more likely the petition is to attain the required number of signatures.
-It should be noted, that the average number of followers is 10x higher for users outside of the campaign compared to the campaign activists.
+It should be noted, that the average number of followers is 10x higher for users outside of the campaign compared to the campaign activists. Other features did not reveal significant correlation.
 
 \subsection{Lessons Learned}
 \label{sec:discussion}
 Since it is not trivial to provide step-by-step instructions on how to drive your petition to success in general, we would like to highlight major lessons learned from our analysis.
 
-\textbf{Does petition success correlate with the number of tweets? - Yes.} We have observed uniform distribution for the petitions with 0 tweets found on \url{backtweets.com} in terms of $SignatureRate$. On the contrary, for the petitions with at least one tweet carrying its direct URL we have observed a very high fraction of successful petitions (88\%). This effect is particularly strong when we consider only tweets without campaign hashtags. We have observed similar behavior for \url{thepetitionsite.com} petitions.
+\textbf{Does petition success correlate with the number of tweets? - Yes.} We have observed uniform distribution for the petitions with 0 tweets found on \url{backtweets.com} in terms of $SignatureRate$. On the contrary, for the petitions with several tweet carrying its direct URL we have observed a very high fraction of successful ones (88\%). This effect is particularly strong when we consider only tweets without campaign hashtags. We have observed similar behavior for \url{thepetitionsite.com} petitions.
 
-\textbf{Does the number of users posting about the petition affect its success? - Yes.} We have binned the petitions from the campaign corpus into 13 bins based on the $SignatureRate$, and extracted the average number of unique users posting about the petition in the bin. Figure~\ref{fig:signatures_vs_users} shows a boxer plot with 25th, 50th and 75th percentile for each bin. As a result, we have found moderate positive correlation with Pearson correlation of 0.7 for bin mean values.
+\textbf{Does the number of users posting about the petition affect its success? - Yes.} We have binned the petitions from the campaign corpus based on the $SignatureRate$, and extracted the average number of unique users posting about the petition in each bin. Figure~\ref{fig:signatures_vs_users} shows a boxer plot with 25th, 50th and 75th percentile for each bin. As a result, we have found moderate positive correlation with Pearson correlation of 0.7 for the bin mean values.
 
 \begin{figure}
 \centering
@@ -91,4 +91,4 @@ Since it is not trivial to provide step-by-step instructions on how to drive you
 
 \textbf{Is it common to post (a) identical tweets without acknowledging original tweets or (b) retweet? - Retweet.} In our petition tweets dataset we have not identified any duplicated tweets, i.e., tweets that are identical. However, as it is shown in the Table~\ref{tab:petition_tweets}, a number of retweets for the successful petitions is several times greater than the failed ones.
 
-\textbf{Which word features are more representative for tweets with successful petitions? - Uppercased.} We have discovered that tweets with successful petitions have more words and uppercased words on average, by 9\% and 12\% correspondingly. We have compared distribution of the uppercased words between the collections of successful and failed petitions by computing relative change for each word. We define it as follows: $RelativeChange = \frac{W_{succ} - W_{fail}}{W_{fail}}$, where $W_{succ}$ and $W_{succ}$ are the counts of uppercased word $W$ for tweets with successful and failed petition correspondingly. Top words from the successful collection: ``ACTION'', ``URGENT'', ``WAZA'', ``PETITION'', ``SIGN''.
+\textbf{Which word features are more representative for tweets with successful petitions? - Uppercased.} We have discovered that tweets with successful petitions have more words and uppercased words on average, by 9\% and 12\% correspondingly. We have compared distribution of the uppercased words between the collections of successful and failed petitions by computing relative change for each word. We define it as follows: $RelativeChange = \frac{W_{succ} - W_{fail}}{W_{fail}}$, where $W_{succ}$ and $W_{succ}$ are the counts of uppercased word $W$ for tweets with successful and failed petition correspondingly. Top words from the successful collection: ``ACTION'', ``URGENT'', ``WAZA'', ``PETITION'', ``SIGN'', while failed ones did not uppercased those at all.
