@@ -2,13 +2,13 @@
 \section{Data Collection, Cleansing and Insights}
 \label{sec:dataset}
 
-Our study relies on the collection of roughly 7500 tweets and retweets about a set of 240 petition related to the campaigns on climate change and animal welfare, which were posted from September 2009 to April 2015. Specifically, we consider a tweet to be related to a given petition if it contains a word ``petition'' in its content.
+Our study relies on the collection of roughly 7500 tweets and retweets about a set of 240 petition related to the campaigns on climate change and animal welfare, which were posted from January 2015 to April 2015. Specifically, we consider a tweet to be related to a given petition if it contains a word ``petition'' in its content.
 
 \textbf{Campaigns dataset and petition tweets:}
 % * Environmental campaigns on Twitter and their collection by means of power users and crowdsourcing.
 In order to analyze the role of the petitions in success of public climate change and animal welfare campaigns
 we have obtained an annotated corpus of such hashtags\footnote{Link is removed to ensure anonymity.}.
-The campaign corpus consists of 118 public campaigns with over 4M unique tweets (not including retweets) that spans over Feb 2009 - April 2015. 
+The campaign corpus consists of 101 public environmental campaigns with over 850K unique tweets that spans over Jan 2015 - April 2015. 
 We assume that each campaign has a uniquely identified hashtag, e.g., \#saveafricananimals, \#tweet4dolphins etc.
 Moreover, all the campaign hashtags are labeled by (a) a high-level goal, e.g., awareness or mobilization type, and (b) a user engagement pattern over time, e.g., one-day campaigns, ever-growing, annual, inactive\footnote{One-day campaigns have the most user activity fallen into the start/first mention of the hashtag.
 Ever-growing campaigns have constantly growing number of users posting with the hashtag.
@@ -18,7 +18,7 @@ Those are the main categories that will be used further in the analysis of the p
 % * Elimination of duplicates and merge unobvious duplicates
 We have extracted all ``petition'' tweets from the annotated collection of environmental public campaigns tweets.
 Here we present an example of a tweet with a petition URL: \textit{``.@thetimes Petiton: Call for Safer Storage of Nuclear Waste in over 80 USA cities. http://tiny.cc/okzicx  \#SaveFukuChildren''}.
-Such tweets were identified in 39 (out of 118) campaigns with a total tweets count of 15K out of which belonged to unique unresolved links (excluding tweets with broken links).
+Such tweets were identified in 39 (out of 101) campaigns with a total tweets count of 15K out of which belonged to unique unresolved links (excluding tweets with broken links).
 Further, we have resolved, stored and annotated all petition URLs. As a result we have found 294 unique petition links and 158 broken or outdated links.
 For valid petition links we have also stored their resolved URL. We have further used this information to eliminate URLs that point to the same petition.
 This process has resulted in 240 unique petitions.
