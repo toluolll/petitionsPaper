@@ -2,25 +2,25 @@
 \section{Data Collection, Cleansing and Insights}
 \label{sec:dataset}
 
-Our study relies on the collection of roughly 7500 tweets and retweets about a set of 240 petition related to the campaigns on climate change and animal welfare, which were posted from January 2015 to April 2015. Specifically, we consider a tweet to be related to a given petition if it contains a word ``petition'' in its content.
+Our study is based on the collection of roughly 7'500 tweets and retweets belonging to 240 petitions related to campaigns on climate change and animal welfare, which were posted from January 2015 to April 2015. Specifically, we consider a tweet to be related to a given petition if it contains the word ``petition'' in its content. \pcm{perhaps say why it's good enough}
 
 \textbf{Campaigns dataset and petition tweets:}
 % * Environmental campaigns on Twitter and their collection by means of power users and crowdsourcing.
-In order to analyze the role of the petitions in success of public climate change and animal welfare campaigns
-we have obtained an annotated corpus of such hashtags\footnote{Link is removed to ensure anonymity.}.
-The campaign corpus consists of 101 public environmental campaigns with over 850K unique tweets that spans over Jan 2015 - April 2015. 
+In order to analyze the role of the petitions in the success of public climate change and animal welfare campaigns,
+we have obtained an annotated corpus of such hashtags\footnote{Link is removed to ensure anonymity.}. \pcm{how?}
+Our campaign corpus consists of 101 public environmental campaigns with over 850K unique tweets. 
 We assume that each campaign has a uniquely identified hashtag, e.g., \#saveafricananimals, \#tweet4dolphins etc.
-Moreover, all the campaign hashtags are labeled by (a) a high-level goal, e.g., awareness or mobilization type, and (b) a user engagement pattern over time, e.g., one-day campaigns, ever-growing, annual, inactive\footnote{One-day campaigns have the most user activity fallen into the start/first mention of the hashtag.
+Moreover, all the campaign hashtags are labeled by (a) a high-level goal, e.g., awareness or mobilization type, and (b) a user engagement pattern over time, e.g., one-day campaigns, ever-growing, annual, inactive\footnote{One-day campaigns have the most user activity fallen \pcm{?} into the start/first mention of the hashtag.
 Ever-growing campaigns have constantly growing number of users posting with the hashtag.
 Annual campaigns are mentioned annually, e.g., yearly, monthly. Inactive campaigns have very low user engagement overall.}.
-Those are the main categories that will be used in the analysis of the petition role across various types of campaigns. Among those, ``ever-growing'' campaigns are the most interesting ones since they maintain constantly growing number of people that are involved in their action on Twitter.
+Those are the main categories that will be used in our analysis. Among those, ``ever-growing'' campaigns are the most interesting ones since they maintain \pcm{not maintain} constantly growing number of people that are involved in their action on Twitter.
 
 % * Elimination of duplicates and merge unobvious duplicates
-We have extracted all ``petition'' tweets from the annotated collection of environmental public campaigns tweets.
+We extracted all ``petition'' tweets from the annotated collection of environmental public campaigns tweets.
 Here we present an example of a tweet with a petition URL: \textit{``.@thetimes Petiton: Call for Safer Storage of Nuclear Waste in over 80 USA cities. http://tiny.cc/okzicx  \#SaveFukuChildren''}.
-Such tweets were identified in 39 (out of 101) campaigns with a total tweets count of 15K out of which belonged to unique unresolved links (excluding tweets with broken links).
-Further, we have resolved, stored and annotated all petition URLs. As a result we have found 294 unique petition links and 158 broken or outdated links.
-For valid petition links we have also stored their resolved URL. We have further used this information to eliminate URLs that point to the same petition.
+Such tweets were identified in 39 (out of 101) campaigns. 15K tweets belonged to unique unresolved links (excluding tweets with broken links).
+In addition, we resolved, stored and annotated all petition URLs. As a result, we found 294 unique petition links and 158 broken or outdated links.
+For valid petition links, we have stored their resolved URL. We further used this information to eliminate URLs that point to the same petition.
 This process has resulted in 240 unique petitions.
 
 % * Limitation for further exploration                      
@@ -28,21 +28,21 @@ This process has resulted in 240 unique petitions.
 Regarding the question of what makes a petition successful as part of the public campaign,
 it should be noted that the campaign tweets collection does not account for the overall distribution of the petition tweets across the whole Twitter. 
 Therefore, we collected additional data as we describe below.
-To minimize the bias in our collection, we further collect tweets that contain one of 240 petition via \url{backtweets.com}. For this task we have used the collection of the extracted URLs with their resolved links (if applicable) and requested \url{backtweets.com} to return all historical tweets that mention given URL.
-Clearly, this still results in only a subset of the petition tweets since it does not account for the URL redirects and shortening. However, we aim for a best effort collection which gives us a clearer picture on the distribution of the petitions' tweets.
-As a result, we have enriched the tweet collection with over 1700 new tweets without campaign hashtag.
+To minimize the bias in our collection, we further collected tweets that contain one of 240 petition via \url{backtweets.com}. For this task, we used the collection of the extracted URLs with their resolved links (if applicable) and requested \url{backtweets.com} to return all historical tweets that mention the given URL.
+Clearly, this still results in only a subset of the petition tweets since it does not account for the URL redirects and shortening. However, we aim for a best effort collection, which gives us a clearer picture on the distribution of the petitions tweets.
+As a result, we enriched the tweet collection with over 1'700 new tweets without campaign hashtag.
 
-\textbf{Thepetitionsite.com.} To compare campaign petitions with other environmental petitions, we have additionally collected all the environmental and animal welfare petitions from the major petition aggregator\footnote{Accessed on the 16th Feb 2016} \url{thepetitionsite.com} and corresponding tweets from \url{backtweets.com}. This resulted in over 2800 petition with the following properties: (a) 35\% of them are successful; (b) 79 of them are in the campaign dataset, (c) 186 of them are mentioned on Twitter with their direct URLs.
+\textbf{Thepetitionsite.com.} To compare campaign petitions with other environmental petitions, we additionally collected all the environmental and animal welfare petitions from the major petition aggregator\footnote{Accessed on the 16th Feb 2016} \url{thepetitionsite.com} and corresponding tweets from \url{backtweets.com}. This resulted in over 2'800 petition with the following properties: (a) 35\% of them are successful; (b) 79 of them are in the campaign dataset, (c) 186 of them are mentioned on Twitter with their direct URLs.
 
 \textbf{Dataset preprocessing}
 To be able to compare petitions with each other, we use both campaign and non-campaign tweets.
 % TODO: Next sentence might be redundant...
-A petition $p$ is characterized by its signature goal $S(p)$, collected signatures $C(p)$, $SignatureRate = \frac{C(p)}{S(p)}$ and the following set of Twitter related features $T_i(p)$.
+A petition $p$ is characterized by its signature goal $S(p)$, collected signatures $C(p)$, $SignatureRate = \frac{C(p)}{S(p)}$ and the following set of Twitter related features $T_i(p)$:
 \begin{enumerate}
 	\setlength\itemsep{0em}
 	\item Number of unique users posted the petition url;
 	\item Number of tweets with url;
 	\item Number of followers of the users posting petition tweets;
 	\item Number of tweets with campaign hashtags vs without;
-	\item Number of users that tweet a petition without campaign hashtag etc.
+	\item Number of users that tweet a petition without any campaign hashtag.
 \end{enumerate}
