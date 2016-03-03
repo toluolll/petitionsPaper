@@ -10,9 +10,9 @@
 % In turn, public campaigns often leverage e-petitioning~\cite{mosca2009petitioning} to reach out to local, national governments or institutions.
 % Outcome of the petitions is relatively easy to extract, since such information is usually provided by petition aggregator web cites. This information can help quantify the performance of the public campaigns and petitions themselves, i.e., by a successful petition we understand a petition that has reached specified number of signatures.
 
-The discourse on climate change is often focused on the impact it has on the environment and on the wildlife~\cite{solomon2009irreversible}.
+The discourse on climate change is often focused on the impact it has on the environment and on  wildlife~\cite{solomon2009irreversible}.
 To bring these issues in the public spotlight, social media campaigns have proved to be an effective instrument to raise awareness and mobilize masses~\cite{Pearce2014}.
-To further push for concrete action from government or public entities, many campaigns resort to e-petitioning~\cite{mosca2009petitioning}, whose success is also much easier to assess: reaching or not a required number of signatures.
+To further push for concrete actions from governments or public entities, many campaigns resort to e-petitioning~\cite{mosca2009petitioning}, whose success is also much easier to assess: reaching or not a required number of signatures.
 Information about the number of signatures obtained for a given e-petition is often publicly available via e-petitions aggregators websites such as \url{thepetitionsite.com}, \url{avaaz.org}, \url{change.org} etc., and can be used as a proxy for the performance of the public campaigns and petitions themselves.
 
 % Existing opportunity
@@ -24,38 +24,39 @@ Information about the number of signatures obtained for a given e-petition is of
 
 % Our goal
 %   Research questions and major findings:
-In this work we tackle two main research questions: 
+In this work, we tackle two main research questions: 
 \textit{What is the role of petitions in various types of environmental campaigns?}
-To answer this question, we studied several environmental campaigns run in the beginning of 2015, measuring the incidence of e-petitioning as an instrument for campaigning across different types of campaigns (awareness, mobilization). We find that petitioning is particularly important during mobilization campaigns.\footnote{Mobilization campaigns refer to the campaigns whose primary goal is to engage and motivate a wide range of partners, allies and individual at the national and local levels, towards a particular problem or issue. While awareness campaigns refer to the campaigns whose primary goal is to raise people’s awareness regarding a particular subject, issue, or situation.}
-\textit{What makes a petition promoted by a public campaign successful?} In this work we answer this question by making an analysis of the features extracted from the tweets that are both marked by a campaign hashtags and not marked.
+To answer this question, we study several environmental campaigns than were run in the beginning of 2015, measuring the incidence of e-petitioning as an instrument for campaigning across different types of campaigns (awareness, mobilization). We find that petitioning is particularly important during mobilization campaigns.\footnote{Mobilization campaigns refer to the campaigns whose primary goal is to engage and motivate a wide range of partners, allies and individual at the national and local levels, towards a particular problem or issue. While awareness campaigns refer to the campaigns whose primary goal is to raise people’s awareness regarding a particular subject, issue, or situation.}
+\textit{What makes a petition promoted by a public campaign successful?} We answer this question by making a feature analysis and comparing tweets that belong to public campaigns to individual tweets. 
 %
-We propose a set of social and contextual features and reveal that required number of signatures for an environmental petition is particularly correlated to its outcome.
+We propose a set of social and contextual features and show how the required number of signatures for an environmental petition is  correlated to its outcome.
 Additionally, we release an annotated corpus with the petitions, their tweets and outcomes\footnote{Link is removed to ensure anonymity.}.
 For this study we focus on Twitter, which remains one of the main channels for social media campaigns, also providing relatively easy access to campaign data.
 
 % Related work and our position/contributions x 2 paragraphs
 % Campaigns/Protests on Climate Change
-\textbf{Climate Change Discourse on Social Media.} Climate change is highly discussed topic by various segments of society. \cite{Kirilenko2014} overview the climate change domain, its polarization, discussion over time etc. \cite{Olteanu2015} study how various climate related events are highlights by various media sources.
+\textbf{Climate Change Discourse on Social Media.} Climate change is a highly discussed topic. \cite{Kirilenko2014} overviews the climate change domain, its polarization, discussion over time etc. \cite{Olteanu2015} studies how various climate related events are highlights by various media sources.
 Variety of public campaigns use social platforms to increase awareness or mobilize people~\cite{Mahmud2014}.
-\cite{Tufekci2013} describes how the on-line attention can be driven towards particular politicized persona, while \cite{gonzalez2013networked} analyse information transmission during protests.
+\cite{Tufekci2013} describes how the on-line attention can be driven towards particular politicized persona, while \cite{gonzalez2013networked} analyses information transmission during protests.
 \cite{hestres2013preaching} studies public mobilization and online-to-offline social movement strategies for two major environmental movements. Unlike the prior work, we analyze a over 100 environmental campaigns as well as their effect on the petition success.
 % TODO: Possible add to the previous section one of the findings we will have!!!
 
 % Petitions
 \textbf{Characterizing E-petitions.} Various works were conducted to analysis the e-petitions on various petition aggregators.
-\cite{Hale2013} describe a temporal analysis of 8K petition on the UK No. 10 Downing Street and make an observation towards early signs of successful petition (large number of signatures during the first days).
-\cite{Huang2015} analyse ``power'' users that produce petitions. The authors have shown that only 1\% of general topic petitions on \url{change.org} reaches their goal.
+\cite{Hale2013} describes a temporal analysis of 8K petition on the UK No. 10 Downing Street and make an observation towards early signs of successful petition (large number of signatures during the first days).
+\cite{Huang2015} analyses ``power'' users that produce petitions. The authors have shown that only 1\% of general topic petitions on \url{change.org} reaches their goal.
 However, to the best of our knowledge, we are the first to analyze which factors predict the success of an environmental petition based on the internal and external attributes of the corresponding public campaign on Twitter.
 % Kickstarter
-On the other hand, analysis of the e-petitions can be compared to the crowdfunding, since in both fields desired and obtained support can be analysed. \cite{Etter2013} study various prediction techniques of the Kickstarter campaigns.
-Later, \cite{An2014} analyse investor activity on Kickstarter and make recommendations of projects based on their activity on Twitter. Unlike aforementioned works, we focus on the climate change and animal welfare petitions, as a part of the environmental public campaigns on Twitter.
+On the other hand, analysis of the e-petitions can be compared to the crowdfunding, since in both fields desired and obtained support can be analysed. \cite{Etter2013} studies various prediction techniques of the Kickstarter campaigns.
+Later, \cite{An2014} analyses investor activity on Kickstarter and make recommendations of projects based on their activity on Twitter. Unlike aforementioned works, we focus on the climate change and animal welfare petitions, as a part of the environmental public campaigns on Twitter.
 
 
 % Implications/Impact etc...
-We found that 25\% of the petition posted with hashtags of the environmental campaigns on Twitter received required number of signatures.
-Moreover, we have revealed major Twitter features that could craft the success of the petitions.
-This information might be of a great interest to the environmental activists and campaign leaders as it can influence the success of the message they are conveying to public.
-It should be noted that the techniques presented below are not restricted to the environmental domain and could be applied to any similar setting.
+\pcm{add a transition sentence otherwise the reader think it's still related work}
+We find that 25\% of the petition posted with environmental campaigns hashtags on Twitter obtained their required number of signatures.
+Moreover, we identify a number of features that can act as indicators for the success of the petitions.
+This information might be of a great interest to the environmental activists and campaign leaders as it can influence the success of the message they are conveying to the public.
+It should be noted that the techniques presented below are not restricted to the environmental domain and could be applied to any related setting.
 
 % Disclaimers
 % In Section~\ref{sec:dataset}, we describe our dataset, its main characteristics, filtering and annotation we apply. We then present in Section~\ref{sec:petition_analysis} petitions' position within environmental campaigns and outside of then within Twitter platform. Finally, we highlight major finding (Section~\ref{sec:discussion}) and conclude in the end.
