@@ -2,18 +2,20 @@
 \section{Data Collection, Cleansing and Insights}
 \label{sec:dataset}
 
-Our study is based on the collection of roughly 7'500 tweets and retweets belonging to 240 petitions related to campaigns on climate change and animal welfare, which were posted from January 2015 to April 2015. Specifically, we consider a tweet to be related to a given petition if it contains the word ``petition'' in its content. \pcm{perhaps say why it's good enough}
+Our study is based on the collection of roughly 7'500 tweets and retweets belonging to 240 petitions related to campaigns on environmental causes, which were posted from January 2015 to April 2015. Specifically, we consider a tweet to be related to a given petition if it contains the word ``petition'' in its content. This filter is generic to capture mentions from the tweet text and URL itself while having small ambiguity, e.g. ``competition''.
 
 \textbf{Campaigns dataset and petition tweets:}
 % * Environmental campaigns on Twitter and their collection by means of power users and crowdsourcing.
-In order to analyze the role of the petitions in the success of public climate change and animal welfare campaigns,
-we have obtained an annotated corpus of such hashtags\footnote{Link is removed to ensure anonymity.}. \pcm{how?}
+In order to analyze \textbf{RQ1},
+we have used an annotated corpus of such campaigns for a given period on Twitter\footnote{Link is removed to ensure anonymity.}.
 Our campaign corpus consists of 101 public environmental campaigns with over 850K unique tweets. 
 We assume that each campaign has a uniquely identified hashtag, e.g., \#saveafricananimals, \#tweet4dolphins etc.
-Moreover, all the campaign hashtags are labeled by (a) a high-level goal, e.g., awareness or mobilization type, and (b) a user engagement pattern over time, e.g., one-day campaigns, ever-growing, annual, inactive\footnote{One-day campaigns have the most user activity fallen \pcm{?} into the start/first mention of the hashtag.
+Moreover, all the campaign hashtags are labeled by (a) a high-level goal, e.g., awareness or mobilization type, and (b) a user engagement pattern over time, e.g., one-day campaigns, ever-growing, annual, inactive\footnote{
 Ever-growing campaigns have constantly growing number of users posting with the hashtag.
+One-day campaigns have the most user activity that happens primarily on the first mention of the hashtag.
 Annual campaigns are mentioned annually, e.g., yearly, monthly. Inactive campaigns have very low user engagement overall.}.
-Those are the main categories that will be used in our analysis. Among those, ``ever-growing'' campaigns are the most interesting ones since they maintain \pcm{not maintain} constantly growing number of people that are involved in their action on Twitter.
+These are the main categories that will be used in our analysis.
+Among those, ``ever-growing'' campaigns are the most interesting ones since they have constantly growing number of people that are involved in their action on Twitter.
 
 % * Elimination of duplicates and merge unobvious duplicates
 We extracted all ``petition'' tweets from the annotated collection of environmental public campaigns tweets.
@@ -25,7 +27,7 @@ This process has resulted in 240 unique petitions.
 
 % * Limitation for further exploration                      
 \textbf{Tweets with petitions:}
-Regarding the question of what makes a petition successful as part of the public campaign,
+Regarding \textbf{RQ2},
 it should be noted that the campaign tweets collection does not account for the overall distribution of the petition tweets across the whole Twitter. 
 Therefore, we collected additional data as we describe below.
 To minimize the bias in our collection, we further collected tweets that contain one of 240 petition via \url{backtweets.com}. For this task, we used the collection of the extracted URLs with their resolved links (if applicable) and requested \url{backtweets.com} to return all historical tweets that mention the given URL.
@@ -42,7 +44,6 @@ A petition $p$ is characterized by its signature goal $S(p)$, collected signatur
 	\setlength\itemsep{0em}
 	\item Number of unique users posted the petition url;
 	\item Number of tweets with url;
-	\item Number of followers of the users posting petition tweets;
+	\item Number of followers of the users posting petition tweets with/without a campaign hashtag;
 	\item Number of tweets with campaign hashtags vs without;
-	\item Number of users that tweet a petition without any campaign hashtag.
 \end{enumerate}
