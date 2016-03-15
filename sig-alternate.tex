@@ -1,44 +1,30 @@
 %\documentclass{acm_proc_article-sp}
 \documentclass[letterpaper]{article}
-\usepackage{aaai}
-
+\usepackage{aaai16}
 \usepackage{times}
 \usepackage{helvet}
 \usepackage{courier}
+\frenchspacing
+\setlength{\pdfpagewidth}{8.5in}
+\setlength{\pdfpageheight}{11in}
+\pdfinfo{
+/Title (Please Sign to Save... : How Online Environmental Petitions Succeed)
+/Author (Julia Proskurnia, Karl Aberer, Philippe Cudre-Mauroux)}
+\setcounter{secnumdepth}{0} 
+
 \usepackage{url}
 \usepackage{dsfont}
-\usepackage{subfigure}
 \usepackage{graphicx}
 \usepackage{xspace}
 \usepackage{multirow}
 \usepackage{booktabs}
 \usepackage{enumitem}
-\usepackage{listings}
 \usepackage{siunitx}
 \usepackage{balance}
 \usepackage{lastpage}
 \usepackage[usenames,svgnames]{xcolor}
-\usepackage{amsmath,array,graphicx}
-\usepackage{kantlipsum}
 \usepackage{appendix}
-\usepackage{lipsum}
 \usepackage{sidecap}
-\usepackage{sparklines}
-\usepackage{pgfplots}
-\usepackage{tikz}
-\usepackage[font=small,labelfont=bf]{caption}
-\newcommand{\rs}[1]{\textcolor{ForestGreen}{RM: #1}}
-\newcommand{\rp}[1]{\textcolor{Magenta}{RP: #1}}
-\newcommand{\pcm}[1]{\textcolor{Red}{PCM: #1}}
-\newcommand{\jp}[1]{\textcolor{Blue}{JP: #1}}
-\renewcommand{\baselinestretch}{1.0}
-\setlength{\emergencystretch}{50pt}
-\setcounter{secnumdepth}{2}
-\renewcommand{\sparklineheight}{2} 
-\renewcommand{\sparklinethickness}{0.5pt}
-\renewcommand{\sparkspikewidth}{1.2pt} 
-\definecolor{sparkspikecolor}{named}{cyan}
-\definecolor{sparklinecolor}{named}{black}
 
 \begin{document}
 
@@ -50,14 +36,11 @@
 \title{Please Sign to Save... : How Online Environmental Petitions Succeed}
 % "Petitions on Environmental Causes" is not really a term according to Google
 
-
-\newcommand{\etal}[1]{#1~\emph{et al.}}
-
 %\numberofauthors{5} %  in this sample file, there are a *total*
 % of EIGHT authors. SIX appear on the 'first-page' (for formatting
 % reasons) and the remaining two appear in the \additionalauthors section.
 %
-%\author{
+\author{
 % You can go ahead and credit any number of authors here,
 % e.g. one 'row of three' or two rows (consisting of one row of three
 % and a second row of one, two or three).
@@ -69,20 +52,10 @@
 % e-mail address with \email.
 %
  % 1st. author
-% \alignauthor Julia Proskurnia \\
-%        \affaddr{\'{E}cole Polytechnique F\'{e}d\'{e}rale de Lausanne}\\
-%        \affaddr{Lausanne---Switzerland}\\
-%        \email{iuliia.proskurnia@epfl.ch}
-% 2nd. author
-% \alignauthor Karl Aberer\\
-% 	     \affaddr{\'{E}cole Polytechnique F\'{e}d\'{e}rale de Lausanne}\\
-%        \affaddr{Lausanne---Switzerland}\\
-%        \email{karl.aberer@epfl.ch}
-% 3rd. author
-% \alignauthor Philippe Cudr\'{e}-Mauroux\\
-% 	    \affaddr{University of Fribourg}\\
-%        \affaddr{Fribourg---Switzerland}\\
-%        \email{phil@exascale.info}
+Julia Proskurnia, Karl Aberer, Philippe Cudr\'{e}-Mauroux \\
+\'{E}cole Polytechnique F\'{e}d\'{e}rale de Lausanne, University of Fribourg, Switzerland \\ 
+\{iuliia.proskurnia,karl.aberer\}@epfl.ch, phil@exascale.info \\
+}
 
 \maketitle
 
@@ -110,11 +83,6 @@ Finally, we present an annotated corpus of petitions posted by environmental cam
 % \category{J.4}{Social and Behavioral Sciences}{Sociology}
 % \terms{Algorithms, Experimentation}
 %\keywords{public campaign analysis, action extraction, time series analysis}
-
-\vspace{1em}
-
-\setlength{\parskip}{0pt} % 1ex plus 0.5ex minus 0.2ex}
-\setlength{\parindent}{0pt}
 
 \input{sections/intro}
 \input{sections/dataset}

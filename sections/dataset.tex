@@ -2,12 +2,12 @@
 \section{Data Collection, Cleansing and Insights}
 \label{sec:dataset}
 
-Our study is based on the collection of roughly 7'500 tweets and retweets belonging to 240 petitions related to campaigns on environmental causes, which were posted from January 2015 to April 2015. Specifically, we consider a tweet to be related to a given petition if it contains the word ``petition'' in its content. This filter is generic to capture mentions from the tweet text and URL itself while having small ambiguity, e.g. ``competition''.
+Our study is based on the collection of roughly 7,500 tweets and retweets belonging to 240 petitions related to campaigns on environmental causes, which were posted from January 2015 to April 2015. Specifically, we consider a tweet to be related to a given petition if it contains the word ``petition'' in its content. This filter is generic to capture mentions from the tweet text and URL itself while having small ambiguity, e.g. ``competition''.
 
 \textbf{Campaigns dataset and petition tweets:}
 % * Environmental campaigns on Twitter and their collection by means of power users and crowdsourcing.
 In order to analyze \textbf{RQ1},
-we have used an annotated corpus of such campaigns for a given period on Twitter\footnote{Link is removed to ensure anonymity.}.
+we have used an annotated corpus of such campaigns for a given period on Twitter\footnote{https://github.com/toluolll/CampaignsDataRelease}.
 Our campaign corpus consists of 101 public environmental campaigns with over 850K unique tweets. 
 We assume that each campaign has a uniquely identified hashtag, e.g., \#saveafricananimals, \#tweet4dolphins etc.
 Moreover, all the campaign hashtags are labeled by (a) a high-level goal, e.g., awareness or mobilization type, and (b) a user engagement pattern over time, e.g., one-day campaigns, ever-growing, annual, inactive\footnote{
@@ -32,18 +32,15 @@ it should be noted that the campaign tweets collection does not account for the 
 Therefore, we collected additional data as we describe below.
 To minimize the bias in our collection, we further collected tweets that contain one of 240 petition via \url{backtweets.com}. For this task, we used the collection of the extracted URLs with their resolved links (if applicable) and requested \url{backtweets.com} to return all historical tweets that mention the given URL.
 Clearly, this still results in only a subset of the petition tweets since it does not account for the URL redirects and shortening. However, we aim for a best effort collection, which gives us a clearer picture on the distribution of the petitions tweets.
-As a result, we enriched the tweet collection with over 1'700 new tweets without campaign hashtag.
+As a result, we enriched the tweet collection with over 1,700 new tweets without campaign hashtag.
 
 \textbf{Thepetitionsite.com.} To compare campaign petitions with other environmental petitions, we additionally collected all the environmental and animal welfare petitions from the major petition aggregator\footnote{Accessed on the 16th Feb 2016} \url{thepetitionsite.com} and corresponding tweets from \url{backtweets.com}. This resulted in over 2'800 petition with the following properties: (a) 35\% of them are successful; (b) 79 of them are in the campaign dataset, (c) 186 of them are mentioned on Twitter with their direct URLs.
 
 \textbf{Dataset preprocessing}
 To be able to compare petitions with each other, we use both campaign and non-campaign tweets.
 % TODO: Next sentence might be redundant...
-A petition $p$ is characterized by its signature goal $S(p)$, collected signatures $C(p)$, $SignatureRate = \frac{C(p)}{S(p)}$ and the following set of Twitter related features $T_i(p)$:
-\begin{enumerate}
-	\setlength\itemsep{0em}
-	\item Number of unique users posted the petition url;
-	\item Number of tweets with url;
-	\item Number of followers of the users posting petition tweets with/without a campaign hashtag;
-	\item Number of tweets with campaign hashtags vs without;
-\end{enumerate}
+A petition $p$ is characterized by its signature goal $S(p)$, collected signatures $C(p)$, $SignatureRate = \frac{C(p)}{S(p)}$ and the following set of Twitter related features $T_i(p)$:\\
+(1) Number of unique users posted the petition url;\\
+(2) Number of tweets with url;\\
+(3) Number of followers of the users posting petition tweets with/without a campaign hashtag;\\
+(4) Number of tweets with campaign hashtags vs without.

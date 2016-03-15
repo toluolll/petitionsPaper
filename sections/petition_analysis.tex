@@ -9,13 +9,13 @@ Given the list of petitions corresponding to campaigns on environmental issues o
 % * Number with petitions tweet stats: number of tweets; number of urls; number of valid urls with petitions;
 Table~\ref{tab:petition_tweets} includes the basic figures extracted about our list of petitions\footnote{Latest petition signatures reassessment is on 28 Jan 2016.}.
 Surprisingly, we notice that failed petitions aimed to gather only about half as much signatures as successful campaings.
-Furthermore, in our data, about a quarter of the petitions were successful, as opposed to only 1\% as found by~\cite{Huang2015} across a broader range of petitions.
+Furthermore, in our data, about a quarter of the petitions were successful, as opposed to only 1\% as found by~\citeauthor{Huang2015} \shortcite{Huang2015} across a broader range of petitions.
 Overall, the tweets corresponding to the successful petitions are more likely to be passed on, i.e., they are retweeted about 4 times more frequently.
 
-After a deeper inspection of the petition collection, we have identified that over 6\% of the petitions in our dataset have a low signature goal $S(p)$, e.g., under 1'000 required signatures, out of which 13\% are identified as successful.
-On the other hand, around 50\% of the petitions have a high initial goal (over \num{30000}) among which 35\% are successful.
+After a deeper inspection of the petition collection, we have identified that over 6\% of the petitions in our dataset have a low signature goal $S(p)$, e.g., under 1,000 required signatures, out of which 13\% are identified as successful.
+On the other hand, around 50\% of the petitions have a high initial goal (over 30,000) among which 35\% are successful.
 Additionally, we have observed 39 petitions to reach over 100K signatures and 130 petitions to collect over 10K signatures.
-Distribution of the petitions by their collected signatures versus their rank is shown on Figure~\ref{fig:signatures_vs_rank} and follow a Zipf distribution.
+Distribution of the petitions by their collected signatures versus their rank is shown on Figure~\ref{fig:signatures_vs_rank} and follow a Zipf one.
 
 \begin{table}[hbt!]
 \centering
@@ -26,19 +26,19 @@ Original Tweets				& 601		& 716		\\
 Original tweets users 		& 245		& 313		\\
 Reweets						& 4828		& 1451 		\\
 Retweets users				& 3965		& 1207		\\
-Average $S(p)$				& 153093	& 79597		\\
-Average $C(p)$				& 170351	& 43739		\\
+Median $S(p)$				& 50000		& 15000		\\
+Median $C(p)$				& 62997		& 6226		\\
 \multicolumn{3}{l}{\textit{Petition tweets without campaign hashtags}}	\\ \midrule
 Tweets						& 1054		& 707		\\
 Users 						& 626		& 472		\\
 \end{tabular}
-\caption{Global statistics of the petition dataset of environmental campaigns. We show the data for the successful and failed petitions, as well as total numbers. Users are unique people who tweeted the petition URLs at least once. $S(p)$ and $C(p)$ for successful and failed petitions are highlighted in the table. Additionally, we show statistics of the petition tweets that does not have a campaign hashtag.}
+\caption{Global statistics of the petition dataset of environmental campaigns. We show the data for the successful and failed petitions, as well as total numbers. Users are unique people who tweeted the petition URLs at least once. $S(p)$ and $C(p)$\footnote{Standard deviation for both $S(p)$ and $C(p)$ is within 270K} for successful and failed petitions are highlighted in the table. Additionally, we show statistics of the petition tweets that does not have a campaign hashtag.}
 \label{tab:petition_tweets}
 \end{table}
 
 \begin{figure}
 \centering
-\includegraphics[scale=0.47]{figures/petitionsVSrank.png}
+\includegraphics[width=\columnwidth]{figures/petitionsVSrank.png}
 \caption{Zipfian for the final number of signatures received by each petition. Red line indicates required number of signatures. The change in the slope of the Zipf's law happens at 1K signatures, i.e., a threshold for a petition to make an impact.}
 \label{fig:signatures_vs_rank}
 \end{figure}
@@ -53,24 +53,26 @@ Users 						& 626		& 472		\\
 
 Following subsection provides insights regarding \textbf{RQ1}.
 In our data, with only two exceptions, all the petitions were promoted by mobilization campaigns. The two exceptions are ``\#talkfracking'' and ``\#worldlovefordolphins'', which are both awareness campaigns.
-Interestingly, the petitions with public campaigns hashtags were not directed towards a particular action but rather towards long-term plans, e.g., preventing ``covering up'' hydraulic fracturing by some organizations, or legalizing hemp farming.
+Interestingly, these petitions with public campaigns hashtags were directed towards long-term plans, e.g., preventing ``covering up'' hydraulic fracturing by some organizations, or legalizing hemp farming.
 
 As described in Section~\ref{sec:dataset}, the campaign corpus is also annotated according to user engagement patterns for each campaign, and consists of four main types: one-day campaigns, ever-growing, annual, inactive.
 We have found that ``ever-growing'' campaigns (``\#saveafricananimals'', ``\#tweet4dolphins'' etc.) are the most active at tweeting about the petitions.
 The rest $\sim$15\% of the campaigns are mainly ``inactive'' (``\#savethereef'', ``\#votegreen2015'').
-Not surprisingly, ``one-day'' campaigns do not tend to use petitions as their instruments since usually they require faster actions.
+Not surprisingly, ``one-day'' campaigns do not tend to use petitions as their instruments since usually it is required to react fast.
 Among campaigns with petition we also identified one ``annual'' campaign (``\#worldlovefordolphinsday'') that is advertising multiple ``Protect Dolphins'' petitions that tend to have a high failure rate.
-Overall, there is no clear distinction between campaigns in terms of having dominantly successful petitions. However, mobilization and ``ever-growing'' campaigns were most active in promoting petitions on Twitter.
+Overall, there is no clear distinction between campaigns in terms of having dominantly successful petitions.
+However, mobilization and ``ever-growing'' campaigns were most active in promoting them on Twitter.
 
 \subsection{Campaign petitions on Twitter}
 After data collection, cleaning and preprocessing, we extracted a number of features from the tweets containing a petition URL.
 This process is explained in Section~\ref{sec:dataset} in detail.
-To answer \textbf{RQ2}, we built a binary decision tree classifier\footnote{ \url{http://scikit-learn.org} } over our petition tweets collection using our set of features.
+To answer \textbf{RQ2}, we built a binary decision tree classifier\footnote{ http://scikit-learn.org } over our petition tweets collection using our set of features.
 
 On average, the tree has a relatively high branching uncertainty factor, however, a few paths were more useful at predicting the petition success.
 We observe that the higher the signature goal, $S(p)$, of a particular petition, the more likely it is to succeed.
 In particular, for the signature goal between between 100K and 300K 88\% of the petition were successful.
-This observation is opposite to the Kickstarter\footnote{\url{www.kickstarter.com}} campaigns~\cite{Etter2013}, where failed campaigns have about three times as much goal(money in their case) compared to successful ones.
+However, setting a high petition goal may not guarantee its success. Success might also be correlated with various external factors, i.e., problem that a petition tries to address, external promotion (Facebook etc.), location of the petition owner etc.
+This observation is opposite to the Kickstarter\footnote{www.kickstarter.com} campaigns~\citeauthor{Etter2013} \shortcite{Etter2013}, where failed campaigns have about three times as much goal(money in their case) compared to successful ones.
 
 In particular, over 92\% of the petitions with $S(p)$ higher 100K obtained their required number of signatures.
 % TODO: Add some motivation, examples etc...
@@ -83,13 +85,13 @@ Since it is not trivial to provide step-by-step instructions on how to drive you
 
 % \pcm{I like the two following points; perhaps those should be the questions you pose in the introduction (research questions); then you could explicitly say that you come back to those questions here}
 
-\textbf{Does petition success correlate with the number of tweets? - Yes.} We observed uniform distribution for the petitions with 0 tweets found on \url{backtweets.com} in terms of $SignatureRate$. On the contrary, for the petitions with several tweet carrying its direct URL, $T_2(p)$, we observed a very high fraction of successful petitions (88\%). This effect is particularly strong when we consider only tweets without campaign hashtags, $T_4(p)$. We observed similar behavior for \url{thepetitionsite.com} petitions.
+\textbf{Does petition success correlate with the number of tweets? - Yes.} We observed uniform distribution for the petitions with 0 tweets found on \url{backtweets.com} in terms of $SignatureRate$. On the contrary, for the petitions with several tweet carrying its direct URL, $T_2(p)$, we observed a very high fraction of successful petitions (88\%). Pearson correlation for petitions with multiple tweets is 0.64 with \(p < 0.05\). This effect is particularly strong when we consider only tweets without campaign hashtags, $T_4(p)$. We observed similar behavior for \url{thepetitionsite.com} petitions.
 
-\textbf{Does the number of users posting about the petition affect its success? - Yes.} We binned the petitions from the campaign corpus based on the $SignatureRate$, and extracted the average number of unique users posting about the petition in each bin. Figure~\ref{fig:signatures_vs_users} shows a boxer plot with 25th, 50th and 75th percentile for each bin. As a result, we found moderate positive correlation with Pearson correlation of 0.7 for the bin mean values.
+\textbf{Does the number of users posting about the petition affect its success? - Yes.} We binned the petitions from the campaign corpus based on the $SignatureRate$, and extracted the average number of unique users posting about the petition in each bin. Figure~\ref{fig:signatures_vs_users} shows a boxer plot with 25th, 50th and 75th percentile for each bin. As a result, Pearson correlation is over 0.7 for the bin mean values (\(p < 0.003\)).
 
 \begin{figure}
 \centering
-\includegraphics[scale=0.48]{figures/signaturesgoalVSnumusersCampaigns.png}
+\includegraphics[width=\columnwidth]{figures/signaturesgoalVSnumusersCampaigns.png}
 \caption{$SignatureRate$ against number of unique users posting about a petition on Twitter.}
 \label{fig:signatures_vs_users}
 \end{figure}
