@@ -2,7 +2,7 @@
 \section{Data Collection, Cleansing and Insights}
 \label{sec:dataset}
 
-Our study is based on the collection of roughly 7,500 tweets and retweets belonging to 240 petitions related to campaigns on environmental causes, which were posted from January 2015 to April 2015. Specifically, we consider a tweet to be related to a given petition if it contains the word ``petition'' in its content. This filter is generic to capture mentions from the tweet text and URL itself while having small ambiguity, e.g. ``competition''.
+Our study is based on the collection of roughly 7,500 tweets and retweets belonging to 240 petitions related to campaigns on environmental causes, which were posted from January 2015 to April 2015. Specifically, we consider a tweet to be related to a given petition if it contains the word ``petition'' in its content. This filter is generic to capture mentions from the tweet text and URL itself while having small ambiguity.
 
 \textbf{Campaigns dataset and petition tweets:}
 % * Environmental campaigns on Twitter and their collection by means of power users and crowdsourcing.
@@ -40,7 +40,7 @@ As a result, we enriched the tweet collection with over 1,700 new tweets without
 To be able to compare petitions with each other, we use both campaign and non-campaign tweets.
 % TODO: Next sentence might be redundant...
 A petition $p$ is characterized by its signature goal $S(p)$, collected signatures $C(p)$, $SignatureRate = \frac{C(p)}{S(p)}$ and the following set of Twitter related features $T_i(p)$:\\
-(1) Number of unique users posted the petition url;\\
-(2) Number of tweets with url;\\
-(3) Number of followers of the users posting petition tweets with/without a campaign hashtag;\\
-(4) Number of tweets with campaign hashtags vs without.
+\textit{(1)} Number of unique users posted the petition url; 
+\textit{(2)} Number of tweets with url;
+\textit{(3)} Number of followers of the users posting petition tweets with/without a campaign hashtag;
+\textit{(4)} Number of tweets with campaign hashtags vs without.
