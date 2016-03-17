@@ -2,27 +2,27 @@
 \section{Data Collection, Cleansing and Insights}
 \label{sec:dataset}
 
-Our study is based on the collection of roughly 7,500 tweets and retweets belonging to 240 petitions related to campaigns on environmental causes, which were posted from January 2015 to April 2015. Specifically, we consider a tweet to be related to a given petition if it contains the word ``petition'' in its content. This filter is generic to capture mentions from the tweet text and URL itself while having small ambiguity.
+Our study is based on the collection of roughly 7,500 tweets and retweets belonging to 240 petitions related to campaigns on environmental causes, which were posted from January 2015 to April 2015. Specifically, we consider a tweet to be related to a given petition if it contains the word ``petition'' in its content. This filter is generic enough to capture mentions from the tweet text and from the URLs while being rather unambiguous.
 
 \textbf{Campaigns dataset and petition tweets:}
 % * Environmental campaigns on Twitter and their collection by means of power users and crowdsourcing.
-In order to analyze \textbf{RQ1},
-we have used an annotated corpus of such campaigns for a given period on Twitter\footnote{https://github.com/toluolll/CampaignsDataRelease}.
+In order to answer \textbf{RQ1},
+we created an annotated corpus of environmental campaigns for a given period of time on Twitter\footnote{https://github.com/toluolll/CampaignsDataRelease}.
 Our campaign corpus consists of 101 public environmental campaigns with over 850K unique tweets. 
 We assume that each campaign has a uniquely identified hashtag, e.g., \#saveafricananimals, \#tweet4dolphins etc.
-Moreover, all the campaign hashtags are labeled by (a) a high-level goal, e.g., awareness or mobilization type, and (b) a user engagement pattern over time, e.g., one-day campaigns, ever-growing, annual, inactive\footnote{
+Moreover, all the campaign hashtags are labeled by (a) their high-level goal, e.g., awareness or mobilization type, and (b) their user engagement pattern over time, e.g., one-day campaigns, ever-growing, annual, inactive\footnote{
 Ever-growing campaigns have constantly growing number of users posting with the hashtag.
-One-day campaigns have the most user activity that happens primarily on the first mention of the hashtag.
-Annual campaigns are mentioned annually, e.g., yearly, monthly. Inactive campaigns have very low user engagement overall.}.
+One-day campaigns have most of their user activity happening primarily on the first mention of the hashtag.
+Annual campaigns are mentioned annually. Inactive campaigns have very low user engagement overall.}.
 These are the main categories that will be used in our analysis.
-Among those, ``ever-growing'' campaigns are the most interesting ones since they have constantly growing number of people that are involved in their action on Twitter.
+Among those, ``ever-growing'' campaigns are the most interesting ones since they are characterized by a constantly growing number of involved people on Twitter.
 
 % * Elimination of duplicates and merge unobvious duplicates
 We extracted all ``petition'' tweets from the annotated collection of environmental public campaigns tweets.
 Here we present an example of a tweet with a petition URL: \textit{``.@thetimes Petiton: Call for Safer Storage of Nuclear Waste in over 80 USA cities. http://tiny.cc/okzicx  \#SaveFukuChildren''}.
 Such tweets were identified in 39 (out of 101) campaigns. 15K tweets belonged to unique unresolved links (excluding tweets with broken links).
 In addition, we resolved, stored and annotated all petition URLs. As a result, we found 294 unique petition links and 158 broken or outdated links.
-For valid petition links, we have stored their resolved URL. We further used this information to eliminate URLs that point to the same petition.
+For valid petition links, we stored their resolved URL. We further used this information to eliminate URLs that point to the same petition.
 This process has resulted in 240 unique petitions.
 
 % * Limitation for further exploration                      
@@ -30,11 +30,11 @@ This process has resulted in 240 unique petitions.
 Regarding \textbf{RQ2},
 it should be noted that the campaign tweets collection does not account for the overall distribution of the petition tweets across the whole Twitter. 
 Therefore, we collected additional data as we describe below.
-To minimize the bias in our collection, we further collected tweets that contain one of 240 petition via \url{backtweets.com}. For this task, we used the collection of the extracted URLs with their resolved links (if applicable) and requested \url{backtweets.com} to return all historical tweets that mention the given URL.
-Clearly, this still results in only a subset of the petition tweets since it does not account for the URL redirects and shortening. However, we aim for a best effort collection, which gives us a clearer picture on the distribution of the petitions tweets.
+To minimize the bias in our collection, we further collected tweets that contain one of the 240 petition via \url{backtweets.com}. For this task, we used the collection of the extracted URLs with their resolved links (if applicable) and requested \url{backtweets.com} to return all historical tweets that mention the given URL.
+Clearly, this still results in only a subset of the petition tweets since it does not account for the URL redirects and shortening. However, we aim for a best-effort collection, which gives us a clearer picture on the distribution of the petitions tweets.
 As a result, we enriched the tweet collection with over 1,700 new tweets without campaign hashtag.
 
-\textbf{Thepetitionsite.com.} To compare campaign petitions with other environmental petitions, we additionally collected all the environmental and animal welfare petitions from the major petition aggregator\footnote{Accessed on the 16th Feb 2016} \url{thepetitionsite.com} and corresponding tweets from \url{backtweets.com}. This resulted in over 2'800 petitions with the following properties: (a) 35\% of them are successful; (b) 79 of them are in the campaign dataset, (c) 186 of them are mentioned on Twitter with their direct URLs.
+\textbf{Thepetitionsite.com.} To compare campaign petitions with other environmental petitions, we additionally collected all the environmental and animal welfare petitions from the major petition aggregator\footnote{Accessed on the 16th Feb 2016} \url{thepetitionsite.com} as well as the corresponding tweets from \url{backtweets.com}. This resulted in over 2,800 petitions with the following properties: (a) 35\% of them are successful; (b) 79 of them are in the campaign dataset, (c) 186 of them are mentioned on Twitter with their direct URLs.
 
 \textbf{Dataset preprocessing}
 To be able to compare petitions with each other, we use both campaign and non-campaign tweets.
