@@ -5,24 +5,24 @@ The style file: aaai.bst
 Database file #1: sigproc.bib
 You've used 13 entries,
             2568 wiz_defined-function locations,
-            660 strings with 6886 characters,
-and the built_in function-call counts, 6284 in all, are:
-= -- 715
+            660 strings with 6881 characters,
+and the built_in function-call counts, 6177 in all, are:
+= -- 700
 > -- 212
 < -- 8
 + -- 70
 - -- 70
-* -- 445
-:= -- 940
+* -- 442
+:= -- 933
 add.period$ -- 66
 call.type$ -- 13
 change.case$ -- 87
 chr.to.int$ -- 13
 cite$ -- 13
-duplicate$ -- 280
-empty$ -- 415
+duplicate$ -- 272
+empty$ -- 408
 format.name$ -- 93
-if$ -- 1361
+if$ -- 1331
 int.to.chr$ -- 1
 int.to.str$ -- 0
 missing$ -- 13
@@ -32,10 +32,10 @@ pop$ -- 68
 preamble$ -- 1
 purify$ -- 100
 quote$ -- 0
-skip$ -- 276
+skip$ -- 264
 stack$ -- 0
-substring$ -- 413
-swap$ -- 124
+substring$ -- 396
+swap$ -- 116
 text.length$ -- 8
 text.prefix$ -- 0
 top$ -- 0
