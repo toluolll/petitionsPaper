@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  17 MAR 2016 07:22
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  17 MAR 2016 07:44
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -744,9 +744,25 @@ Cli-
 
 ])
 (./sections/dataset.tex
-Underfull \hbox (badness 1460) in paragraph at lines 37--38
+Underfull \hbox (badness 10000) in paragraph at lines 37--38
 []\OT1/ptm/b/n/10 Thepetitionsite.com. \OT1/ptm/m/n/10 To com-pare cam-paign pe
--ti-tions
+-ti-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--38
+\OT1/ptm/m/n/10 tions with other en-vi-ron-men-tal pe-ti-tions, we ad-di-
+ []
+
+
+Underfull \hbox (badness 6658) in paragraph at lines 37--38
+\OT1/ptm/m/n/10 tion-ally col-lected all the en-vi-ron-men-tal and an-i-mal
+ []
+
+
+Underfull \hbox (badness 2990) in paragraph at lines 37--38
+\OT1/ptm/m/n/10 wel-fare pe-ti-tions from the ma-jor pe-ti-tion ag-gre-ga-tor[]
+
  []
 
 ) (./sections/petition_analysis.tex
@@ -760,6 +776,11 @@ File: figures/petitionsVSrank.png Graphic file (type png)
 Package pdftex.def Info: figures/petitionsVSrank.png used on input line 41.
 (pdftex.def)             Requested size: 239.39438pt x 68.39915pt.
  [3 <./figures/petitionsVSrank.png>]
+LaTeX Font Info:    Font shape `OT1/pcr/bx/n' in size <10> not available
+(Font)              Font shape `OT1/pcr/b/n' tried instead on input line 88.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <10> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 88.
+
 <figures/signaturesgoalVSnumusersCampaigns.png, id=25, 505.89pt x 216.81pt>
 File: figures/signaturesgoalVSnumusersCampaigns.png Graphic file (type png)
 
@@ -773,45 +794,63 @@ Underfull \hbox (badness 1248) in paragraph at lines 101--2
 []\OT1/ptm/b/n/10 Which word fea-tures are more rep-re-sen-ta-tive for
  []
 
-)
-Underfull \hbox (badness 1997) in paragraph at lines 20--92
-\OT1/ptm/b/n/10 Acknowledgements. \OT1/ptm/m/n/10 The au-thors would like to th
-ank
+
+Underfull \hbox (badness 1253) in paragraph at lines 101--2
+\OT1/ptm/b/n/10 of the up-per-cased words be-tween the col-lec-tions of
  []
 
-(./sig-alternate.bbl) 
-AED: lastpage setting LastPage
+
+Underfull \hbox (badness 1406) in paragraph at lines 101--2
+\OML/cmm/m/it/10 RelativeChange \OT1/cmr/m/n/10 = []$\OT1/ptm/b/n/10 , where $\
+OML/cmm/m/it/10 W[]$ \OT1/ptm/b/n/10 and
+ []
+
+)
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 95.
+ (./sig-alternate.bbl
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <9> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 7.
+
 
 Package balance Warning: You have called \balance in second column
 (balance)                Columns might not be balanced.
 
-[4 <./figures/signaturesgoalVSnumusersCampaigns.png>] (./sig-alternate.aux) ) 
+[4 <./figures/signaturesgoalVSnumusersCampaigns.png>])
+
+AED: lastpage setting LastPage
+
+Overfull \vbox (1.07545pt too high) has occurred while \output is active []
+
+
+[5] (./sig-alternate.aux) ) 
 Here is how much of TeX's memory you used:
- 11016 strings out of 493488
- 231026 string characters out of 3141326
- 247040 words of memory out of 3000000
- 14104 multiletter control sequences out of 15000+200000
- 26061 words of font info for 55 fonts, out of 3000000 for 9000
+ 11028 strings out of 493488
+ 231160 string characters out of 3141326
+ 246040 words of memory out of 3000000
+ 14111 multiletter control sequences out of 15000+200000
+ 29776 words of font info for 61 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
- 38i,11n,35p,830b,261s stack positions out of 5000i,500n,10000p,200000b,50000s
-{/
-usr/local/texlive/2012/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texli
-ve/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texliv
-e/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/
-2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/20
-12/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2012
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2012/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2012/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2012/texmf
--dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2012/texmf-d
-ist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2012/texmf-dist/font
-s/type1/urw/times/utmb8a.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/ur
-w/times/utmr8a.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/urw/times/ut
-mri8a.pfb>
-Output written on sig-alternate.pdf (4 pages, 173765 bytes).
+ 38i,11n,35p,830b,263s stack positions out of 5000i,500n,10000p,200000b,50000s
+{/usr/local/texlive/2012/texmf-dist/fonts/enc/dvips/
+base/8r.enc}</usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmmi10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mmi5.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmm
+i7.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10
+.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pf
+b></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
+></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><
+/usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></u
+sr/local/texlive/2012/texmf-dist/fonts/type1/urw/courier/ucrb8a.pfb></usr/local
+/texlive/2012/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive
+/2012/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2012/texm
+f-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2012/texmf-dist/fo
+nts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/
+urw/times/utmri8a.pfb>
+Output written on sig-alternate.pdf (5 pages, 197401 bytes).
 PDF statistics:
- 71 PDF objects out of 1000 (max. 8388607)
- 48 compressed objects within 1 object stream
+ 82 PDF objects out of 1000 (max. 8388607)
+ 56 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 
