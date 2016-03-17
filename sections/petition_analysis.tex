@@ -14,8 +14,8 @@ Overall, the tweets corresponding to the successful petitions are more likely to
 
 After a deeper inspection of the petition collection, we identified that over 6\% of the petitions in our dataset have a low signature goal $S(p)$, i.e., under 1,000 required signatures, out of which 13\% are identified as successful (as they reach their goal).
 On the other hand, around 50\% of the petitions have a high initial goal (over 30,000) among which 35\% are successful.
-Additionally, we observed that 39 petitions reached over 100K signatures and that 130 petitions collected over 10K signatures.
-The distribution of collected signatures versus their rank {\bf what is the rank?} is shown in Figure~\ref{fig:signatures_vs_rank}; it follows a Zipf distribution.
+Additionally, we observed that 39 petitions reached over 100K signatures while 130 petitions collected over 10K signatures.
+The distribution of collected signatures is shown in Figure~\ref{fig:signatures_vs_rank}; it follows a Zipf distribution.
 
 \begin{table}[hbt!]
 \centering
@@ -39,7 +39,7 @@ Users 						& 626		& 472		\\
 \begin{figure}
 \centering
 \includegraphics[width=\columnwidth]{figures/petitionsVSrank.png}
-\caption{Final number of signatures received by each petition. The red line indicates the required number of signatures. A change in the slope of the zipfian distribution occurs at 1K signatures, which represents a threshold for a petition to make an impact.}
+\caption{The final number of signatures received by each petition. The red line indicates the required number of signatures. A change in the slope of the zipf distribution occurs at 1K signatures, which represents a threshold for a petition to make a potential impact.}
 \label{fig:signatures_vs_rank}
 \end{figure}
 
@@ -55,13 +55,13 @@ The following subsection provides answers for \textbf{RQ1} based on our analysis
 With only two exceptions, all the petitions were promoted through mobilization campaigns. The two exceptions are ``\#talkfracking'' and ``\#worldlovefordolphins'', which are both awareness campaigns.
 Interestingly, these petitions with public campaigns hashtags were directed towards long-term plans, e.g., preventing ``covering up'' hydraulic fracturing by some organizations, or legalizing hemp farming.
 
-As described in the Data Collection section, the campaign corpus is also annotated according to user engagement patterns for each campaign, and consists of four main types: one-day campaigns, ever-growing, annual, inactive.
+As described in the Data Collection section, the campaign corpus is also annotated according to user engagement patterns for each campaign, and consists of four main types: one-day, ever-growing, annual, inactive.
 We found that ``ever-growing'' campaigns (``\#saveafricananimals'', ``\#tweet4dolphins'' etc.) are the most active at tweeting about the petitions.
 The rest $\sim$15\% of the campaigns are mainly ``inactive'' (``\#savethereef'', ``\#votegreen2015'').
-Not surprisingly, ``one-day'' campaigns do not tend to use petitions as their instruments given the very short timespans of such campaings.
+Not surprisingly, ``one-day'' campaigns do not use petitions as their instruments given the very short timespans of such campaings.
 Among campaigns with petitions, we also identified one ``annual'' campaign (``\#worldlovefordolphinsday'') that is advertising multiple ``Protect Dolphins'' petitions that tend to have a high failure rate.
 Overall, there is no clear distinction between campaigns in terms of having dominantly successful petitions.
-However, mobilization and ``ever-growing'' campaigns were the most active campaigns on Twitter.
+However, mobilization and ``ever-growing'' campaigns were the most active with petitions on Twitter.
 
 \subsection{Campaign petitions on Twitter}
 After data collection, cleaning and preprocessing, we extracted a number of features from the tweets containing a petition URL.
@@ -85,9 +85,9 @@ Since it is not trivial to provide step-by-step instructions on how to drive you
 
 % \pcm{I like the two following points; perhaps those should be the questions you pose in the introduction (research questions); then you could explicitly say that you come back to those questions here}
 
-\textbf{Does petition success correlate with the number of tweets? - Yes.} We observed uniform distribution for the petitions with 0 tweets found on \url{backtweets.com} in terms of $SignatureRate$. On the contrary, for the petitions with several tweets carrying its direct URL, $T_2(p)$, we observed a very high fraction of successful petitions (88\%). Pearson correlation for petitions with multiple tweets is 0.64 with \(p < 0.05\). This effect is particularly strong when we consider only retweets or tweets without campaign hashtags, $T_4(p)$. We observed similar behavior for \textit{thepetitionsite.com}.
+\textbf{Does petition success correlate with the number of tweets? - Yes.} We observed uniform distribution for the petitions with 0 tweets found on \textit{backtweets.com} in terms of $SignatureRate$. On the contrary, for the petitions with several tweets carrying its direct URL, $T_2(p)$, we observed a very high fraction of successful petitions (88\%). Pearson correlation for petitions with multiple tweets is 0.64 with \(p < 0.05\). This effect is particularly strong when we consider only retweets or tweets without campaign hashtags, $T_4(p)$. We observed similar behavior for \textit{thepetitionsite.com}.
 
-\textbf{Does the number of users posting about the petition affect its success? - Yes.} We binned the petitions from the campaign corpus based on the $SignatureRate$, and extracted the average number of unique users posting about the petition in each bin. Figure~\ref{fig:signatures_vs_users} shows a boxer plot with the 25th, 50th and 75th percentiles for each bin. As a result, Pearson correlation is over 0.7 for the bin mean values (\(p < 0.003\)). {\bf What does this mean? imply?}
+\textbf{Does the number of users posting about the petition affect its success? - Yes.} We binned the petitions from the campaign corpus based on the $SignatureRate$, and extracted the average number of unique users posting about the petition in each bin. Figure~\ref{fig:signatures_vs_users} shows a boxer plot with the 25th, 50th and 75th percentiles for each bin. As a result, Pearson correlation is over 0.7 with \(p < 0.003\).
 
 \begin{figure}
 \centering
